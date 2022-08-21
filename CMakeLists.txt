@@ -13,10 +13,16 @@ option(COVERAGE_GTEST "Включить покрытие кода тестами
 find_package(Boost COMPONENTS thread system chrono REQUIRED)
 find_program(GCOVR_EXECUTABLE lcov)
 
+# valgrind --tool=callgrind ./build/mpsc_queue_test 
+# kcachegrind calgrind.out.17345
+
+# env CPUPROFILE=test1.out ./mpsc_queue_test 
+# pprof --web ./mpsc_queue_test test1.out
+add_link_options(-lprofiler -g)
+add_compile_options(-lprofiler -g)
+# gprof ./build/mpsc_queue_test > profile
 # add_compile_options(-pg)
 # add_link_options(-pg)
-# add_compile_options(-Wl,--no-as-needed,-lprofiler,--as-needed)
-# add_link_options(-Wl,--no-as-needed,-lprofiler,--as-needed)
 # add_compile_options(-Wl,--no-as-needed,-lprofiler,--as-needed -g)
 # add_link_options(-Wl,--no-as-needed,-lprofiler,--as-needed -g)
 

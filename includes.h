@@ -16,8 +16,9 @@
 #include <stdint.h>
 #include <unistd.h>
 #include <condition_variable>
- 
-#include <boost/lockfree/spsc_queue.hpp>  
+#include <csignal>
+
+#include <boost/lockfree/spsc_queue.hpp>
 #include <boost/lockfree/queue.hpp>
 
 #include "./includes/MPSCQ/MPSCQueue.h"
